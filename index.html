@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanServeX | Local Service Finder</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 🏠 UrbanServeX Marketplace Homepage -->
+    <div id="homepageView" class="view active">
+        <header class="hero-header shadow-sm">
+            <div class="container d-flex justify-content-between align-items-center py-2">
+                <div class="logo-wrapper d-flex align-items-center gap-2">
+                    <div class="app-logo-svg">
+                        <svg width="40" height="40" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="500" height="500" rx="100" fill="white"/>
+                            <!-- House Roof (Purple) -->
+                            <path d="M250 120L100 250H150V380H350V250H400L250 120Z" fill="#5b3b8c"/>
+                            <path d="M320 200V150H280V165L320 200Z" fill="#5b3b8c"/>
+                            <!-- Pin (Rose Gold) -->
+                            <path d="M250 350C210 350 180 320 180 280C180 240 250 180 250 180C250 180 320 240 320 280C320 320 290 350 250 350Z" fill="#c27a5d"/>
+                            <!-- Inner House (White/Light) -->
+                            <path d="M250 255L230 272V295H270V272L250 255Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h1 class="logo mb-0">Urban<span>ServeX</span></h1>
+                </div>
+                <div class="nav-auth d-flex gap-2">
+                    <button class="btn btn-outline-custom" onclick="showView('loginView')">Login</button>
+                    <button class="btn btn-custom" onclick="showView('registerView')">Get Started</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center hero-grid">
+                    <div class="col-lg-7 hero-text">
+                        <h2 class="hero-title">Your Urban Life, <br><span>Simplified.</span></h2>
+                        <p class="hero-subtitle mb-4">India's premium marketplace for verified home services. From quick repairs to expert tutoring, we bring the best professionals to your doorstep.</p>
+                        <div class="hero-actions d-flex gap-3 mb-5">
+                            <button class="btn btn-custom btn-lg px-4" onclick="showView('loginView')">Get Started Now</button>
+                            <button class="btn btn-outline-custom btn-lg px-4" onclick="scrollToSection('marketCategories')">Explore Market</button>
+                        </div>
+                        <div class="hero-stats d-flex gap-4">
+                            <div class="stat-item"><b>50k+</b> <span>Happy Users</span></div>
+                            <div class="stat-item"><b>15k+</b> <span>Experts</span></div>
+                            <div class="stat-item"><b>18</b> <span>Cities</span></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 hero-image d-none d-lg-block">
+                        <div class="market-illustration hero-service-scene" aria-hidden="true">
+                            <div class="scene-orbit orbit-one"></div>
+                            <div class="scene-orbit orbit-two"></div>
+                            <div class="hero-phone-card">
+                                <div class="phone-topbar"></div>
+                                <div class="phone-search-line"></div>
+                                <div class="provider-mini-card mini-card-one">
+                                    <span class="provider-avatar"></span>
+                                    <span class="provider-lines"></span>
+                                </div>
+                                <div class="provider-mini-card mini-card-two">
+                                    <span class="provider-avatar"></span>
+                                    <span class="provider-lines"></span>
+                                </div>
+                                <div class="booking-chip">BOOKED</div>
+                            </div>
+                            <div class="floating-service service-electric">
+                                <span class="service-symbol">E</span>
+                                <span>Electrician</span>
+                            </div>
+                            <div class="floating-service service-clean">
+                                <span class="service-symbol">C</span>
+                                <span>Cleaning</span>
+                            </div>
+                            <div class="floating-service service-plumb">
+                                <span class="service-symbol">P</span>
+                                <span>Plumber</span>
+                            </div>
+                            <div class="location-pin-visual">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-trust-strip">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-visual trust-verified">
+                            <span></span>
+                        </div>
+                        <strong>Verified Providers</strong>
+                        <span>Checked profiles for safer bookings</span>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-visual trust-discovery">
+                            <span></span>
+                        </div>
+                        <strong>Fast Discovery</strong>
+                        <span>Find nearby help by city and category</span>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-visual trust-booking">
+                            <span></span>
+                        </div>
+                        <strong>Simple Booking</strong>
+                        <span>Book your service in one clean flow</span>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-visual trust-support">
+                            <span></span>
+                        </div>
+                        <strong>Local Support</strong>
+                        <span>Help for everyday home-service needs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="marketCategories" class="market-categories py-5">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <h3 class="display-6 fw-bold">Explore the Marketplace</h3>
+                    <p class="text-muted">Wide range of services at your fingertips</p>
+                </div>
+                <div class="row g-4 category-market-grid">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="market-cat-card" onclick="showView('loginView')">
+                            <div class="icon-box">⚡</div>
+                            <h4>Electrical</h4>
+                            <p>Repairs, Wiring & More</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="market-cat-card" onclick="showView('loginView')">
+                            <div class="icon-box">🚰</div>
+                            <h4>Plumbing</h4>
+                            <p>Fix Leaks & Installations</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="market-cat-card" onclick="showView('loginView')">
+                            <div class="icon-box">🔧</div>
+                            <h4>Mechanic</h4>
+                            <p>Vehicle Care & Repair</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="market-cat-card" onclick="showView('loginView')">
+                            <div class="icon-box">❄️</div>
+                            <h4>AC Repair</h4>
+                            <p>Cooling Solutions</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="market-cat-card" onclick="showView('loginView')">
+                            <div class="icon-box">🎓</div>
+                            <h4>Tutor</h4>
+                            <p>Academic Excellence</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="market-cat-card" onclick="showView('loginView')">
+                            <div class="icon-box">🧹</div>
+                            <h4>Cleaning</h4>
+                            <p>Home & Office Deep Clean</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="citiesSection" class="cities-section py-5 bg-light-custom">
+            <div class="container text-center">
+                <div class="section-header mb-5">
+                    <h3 class="display-6 fw-bold">Available Across India</h3>
+                    <p class="text-muted">Trusted by citizens in 18+ major cities</p>
+                </div>
+                <div class="row g-3 justify-content-center city-grid">
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <button class="city-card w-100 h-100" onclick="selectCity('Bangalore')">
+                            <span class="city-icon">🏢</span>
+                            <span>Bangalore</span>
+                        </button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <button class="city-card w-100 h-100" onclick="selectCity('Mumbai')">
+                            <span class="city-icon">🌊</span>
+                            <span>Mumbai</span>
+                        </button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <button class="city-card w-100 h-100" onclick="selectCity('Delhi')">
+                            <span class="city-icon">🏛️</span>
+                            <span>Delhi</span>
+                        </button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <button class="city-card w-100 h-100" onclick="selectCity('Hyderabad')">
+                            <span class="city-icon">🕌</span>
+                            <span>Hyderabad</span>
+                        </button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <button class="city-card w-100 h-100" onclick="selectCity('Chennai')">
+                            <span class="city-icon">🏖️</span>
+                            <span>Chennai</span>
+                        </button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <button class="city-card w-100 h-100" onclick="selectCity('Pune')">
+                            <span class="city-icon">⛰️</span>
+                            <span>Pune</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section py-5">
+            <div class="container">
+                <div class="row g-5 text-center features-grid">
+                    <div class="col-md-4">
+                        <div class="feature-item p-4">
+                            <div class="feature-icon mb-3">💎</div>
+                            <h5 class="fw-bold">Premium Quality</h5>
+                            <p class="text-muted">Top-rated professionals with years of experience.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-item p-4">
+                            <div class="feature-icon mb-3">🛡️</div>
+                            <h5 class="fw-bold">Secured Booking</h5>
+                            <p class="text-muted">Safe and verified transactions for your peace of mind.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-item p-4">
+                            <div class="feature-icon mb-3">💬</div>
+                            <h5 class="fw-bold">24/7 Support</h5>
+                            <p class="text-muted">Dedicated team to help you with any queries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contactSection" class="contact-section py-5">
+            <div class="container">
+                <div class="contact-shell">
+                    <div class="contact-copy">
+                        <span class="section-kicker">Contact Us</span>
+                        <h3>Need help with UrbanServeX?</h3>
+                        <p>Send your question, feedback, or service request and we will get back to you.</p>
+                        <div class="contact-direct">
+                            <span>Email</span>
+                            <strong>aliyafathima467@gmail.com</strong>
+                        </div>
+                    </div>
+                    <form id="contactForm" class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="contactName">Name</label>
+                                <input type="text" id="contactName" required placeholder="Your name">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="contactEmail">Email</label>
+                                <input type="email" id="contactEmail" required placeholder="your@email.com">
+                            </div>
+                            <div class="col-12">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" rows="4" required placeholder="How can we help?"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-custom w-100 py-3">Send Message</button>
+                            </div>
+                            <div class="col-12">
+                                <p id="contactStatus" class="small mb-0" aria-live="polite"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="home-footer py-4 border-top text-center">
+            <div class="container">
+                <div class="footer-links mb-2">
+                    <button type="button" onclick="scrollToSection('marketCategories')">Services</button>
+                    <button type="button" onclick="scrollToSection('citiesSection')">Cities</button>
+                    <button type="button" onclick="scrollToSection('contactSection')">Contact</button>
+                </div>
+                <p class="mb-0 text-muted">&copy; 2026 UrbanServeX. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 🔐 Login View -->
+    <div id="loginView" class="view auth-view py-5">
+        <div class="container d-flex justify-content-center">
+            <div class="auth-card shadow-lg p-5">
+                <div class="d-flex justify-content-center mb-4">
+                    <div class="app-logo-svg">
+                        <svg width="60" height="60" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="500" height="500" rx="100" fill="white"/>
+                            <path d="M250 120L100 250H150V380H350V250H400L250 120Z" fill="#5b3b8c"/>
+                            <path d="M320 200V150H280V165L320 200Z" fill="#5b3b8c"/>
+                            <path d="M250 350C210 350 180 320 180 280C180 240 250 180 250 180C250 180 320 240 320 280C320 320 290 350 250 350Z" fill="#c27a5d"/>
+                            <path d="M250 255L230 272V295H270V272L250 255Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="logo mb-3">Urban<span>ServeX</span></h1>
+                <h2 class="h4 fw-bold mb-2">Welcome Back</h2>
+                <p class="text-muted mb-4">Enter your details to continue to the marketplace</p>
+                <form id="loginForm" class="auth-form text-start">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold small">Email Address</label>
+                        <input type="email" id="loginEmail" class="form-control form-control-lg" required placeholder="name@email.com">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold small">Password</label>
+                        <input type="password" id="loginPassword" class="form-control form-control-lg" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-custom btn-lg w-100 mb-3">Sign In</button>
+                </form>
+                <p class="auth-switch small">New to UrbanServeX? <a href="#" class="text-decoration-none fw-bold" onclick="showView('registerView')">Create account</a></p>
+                <button class="btn btn-link text-muted small text-decoration-none mt-3" onclick="showView('homepageView')">← Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔐 Register View -->
+    <div id="registerView" class="view auth-view py-5">
+        <div class="container d-flex justify-content-center">
+            <div class="auth-card shadow-lg p-5">
+                <div class="d-flex justify-content-center mb-4">
+                    <div class="app-logo-svg">
+                        <svg width="60" height="60" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="500" height="500" rx="100" fill="white"/>
+                            <path d="M250 120L100 250H150V380H350V250H400L250 120Z" fill="#5b3b8c"/>
+                            <path d="M320 200V150H280V165L320 200Z" fill="#5b3b8c"/>
+                            <path d="M250 350C210 350 180 320 180 280C180 240 250 180 250 180C250 180 320 240 320 280C320 320 290 350 250 350Z" fill="#c27a5d"/>
+                            <path d="M250 255L230 272V295H270V272L250 255Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="logo mb-3">Urban<span>ServeX</span></h1>
+                <h2 class="h4 fw-bold mb-2">Join the Market</h2>
+                <p class="text-muted mb-4">Create an account to book professional services</p>
+                <form id="registerForm" class="auth-form text-start">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold small">Full Name</label>
+                        <input type="text" id="regName" class="form-control form-control-lg" required placeholder="Full Name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold small">Email Address</label>
+                        <input type="email" id="regEmail" class="form-control form-control-lg" required placeholder="name@email.com">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold small">Password</label>
+                        <input type="password" id="regPassword" class="form-control form-control-lg" required placeholder="Min 6 characters">
+                    </div>
+                    <button type="submit" class="btn btn-custom btn-lg w-100 mb-3">Register Now</button>
+                </form>
+                <p class="auth-switch small">Already have an account? <a href="#" class="text-decoration-none fw-bold" onclick="showView('loginView')">Login here</a></p>
+                <button class="btn btn-link text-muted small text-decoration-none mt-3" onclick="showView('homepageView')">← Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🧭 Main App View -->
+    <div id="mainAppView" class="view">
+        <header class="header shadow-sm py-2 sticky-top bg-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="logo-group d-flex align-items-center gap-2">
+                        <div class="app-logo-svg small">
+                            <svg width="32" height="32" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="500" height="500" rx="100" fill="white"/>
+                                <path d="M250 120L100 250H150V380H350V250H400L250 120Z" fill="#5b3b8c"/>
+                                <path d="M250 350C210 350 180 320 180 280C180 240 250 180 250 180C250 180 320 240 320 280C320 320 290 350 250 350Z" fill="#c27a5d"/>
+                                <path d="M250 255L230 272V295H270V272L250 255Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h1 class="logo mb-0 fs-4">Urban<span>ServeX</span></h1>
+                    </div>
+                        <div id="currentLocationBadge" class="location-badge mt-1 d-inline-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span id="currentCityText" class="small">Location</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="search-container position-relative" id="mainSearchContainer">
+                            <svg class="search-icon position-absolute top-50 translate-middle-y ms-3 text-muted" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" id="searchInput" class="form-control rounded-pill ps-5 py-2 border-0 bg-light" placeholder="Search cities or services..." autocomplete="off">
+                            <div id="searchSuggestions" class="search-suggestions-dropdown shadow-lg hidden"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-end gap-2">
+                        <button class="btn btn-outline-secondary btn-sm rounded-pill px-3" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Floating Add Service Button -->
+        <button id="openFormBtn" class="btn btn-custom fab-btn shadow-lg" title="Register New Service">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span class="ms-2 d-none d-md-inline">Add Service</span>
+        </button>
+
+    <main class="container">
+        <section class="filters-container">
+            <div class="filters-top-row">
+                <div id="categoryFilters" class="category-pills">
+                    <button class="filter-btn active" data-category="All">All</button>
+                    <button class="filter-btn" data-category="Electrician">Electrician</button>
+                    <button class="filter-btn" data-category="Plumber">Plumber</button>
+                    <button class="filter-btn" data-category="Mechanic">Mechanic</button>
+                    <button class="filter-btn" data-category="AC Repair">AC Repair</button>
+                    <button class="filter-btn" data-category="Tutor">Tutor</button>
+                    <button class="filter-btn" data-category="Cleaning">Cleaning</button>
+                    <button class="filter-btn" data-category="Gardening">Gardening</button>
+                </div>
+                <div class="utility-controls">
+                    <select id="sortSelect" class="sort-select">
+                        <option value="default">Sort by: Default</option>
+                        <option value="rating">Rating: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="secondary-filters">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="emergencyToggle">
+                    <span class="slider"></span>
+                    <span class="toggle-label">24/7 Emergency Only</span>
+                </label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="favoritesToggle">
+                    <span class="slider"></span>
+                    <span class="toggle-label">Favorites Only</span>
+                </label>
+            </div>
+        </section>
+
+        <section class="services-grid" id="servicesGrid">
+            <!-- Cards injected here -->
+        </section>
+
+        <div id="emptyState" class="empty-state hidden">
+            <div class="empty-icon">🔍</div>
+            <h3>No services found</h3>
+            <p>Try adjusting your search or category filters.</p>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Register New Service</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="addServiceForm">
+                <div class="form-group">
+                    <label for="serviceName">Business or Provider Name</label>
+                    <input type="text" id="serviceName" required placeholder="e.g. Elite Plumbing Solutions">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="serviceType">Service Category</label>
+                        <select id="serviceType" required>
+                            <option value="" disabled selected>Select category</option>
+                            <option value="Electrician">Electrician</option>
+                            <option value="Plumber">Plumber</option>
+                            <option value="Mechanic">Mechanic</option>
+                            <option value="AC Repair">AC Repair</option>
+                            <option value="Tutor">Tutor</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Gardening">Gardening</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceRating">Initial Rating</label>
+                        <select id="serviceRating">
+                            <option value="5">5 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="2">2 Stars</option>
+                            <option value="1">1 Star</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="servicePhone">Contact Phone</label>
+                        <input type="tel" id="servicePhone" required placeholder="555-0123">
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceStatus">Initial Status</label>
+                        <select id="serviceStatus">
+                            <option value="Available">Available</option>
+                            <option value="Busy">Busy</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="serviceLocation">Service Area / Location</label>
+                    <input type="text" id="serviceLocation" required placeholder="e.g. Brooklyn, NY">
+                </div>
+                <div class="form-row">
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="serviceVerified">
+                        <label for="serviceVerified">Verified Provider</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="serviceEmergency">
+                        <label for="serviceEmergency">24/7 Available</label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary cancel-modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Service</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 📅 Booking Page View -->
+</div>
+
+    <div id="bookingView" class="view py-5" style="min-height: 100vh; background: #fff;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="booking-page-header d-flex align-items-center gap-3 mb-4">
+                        <button class="btn btn-outline-custom rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;" onclick="showView('mainAppView')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        </button>
+                        <div>
+                            <h2 class="h4 fw-bold mb-0">Complete Your Booking</h2>
+                            <p class="text-muted small mb-0">UrbanServeX • Secure Checkout</p>
+                        </div>
+                    </div>
+
+                    <div class="booking-card bg-white rounded-4 shadow-sm overflow-hidden border">
+                        <div id="bookingFormContent" class="p-4 p-md-5">
+                            <!-- Step 1: Selected Service (Read-only) -->
+                            <div class="selected-service-preview bg-light-custom rounded-3 p-4 mb-5 d-flex align-items-center gap-4 border-0">
+                                <div class="service-icon-box bg-white shadow-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; font-size: 2rem;">
+                                    🛠️
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h3 id="bookingServiceName" class="h5 fw-bold mb-1">Service Name</h3>
+                                    <p class="text-muted mb-0">
+                                        <span id="bookingCategory">Category</span> • 
+                                        <span id="bookingRating" class="text-warning">⭐ 4.5</span> • 
+                                        <span id="bookingLocation">City</span>
+                                    </p>
+                                    <div class="badge bg-white text-muted border mt-2 px-2 py-1" style="font-size: 0.7rem; font-weight: 500;">SELECTED SERVICE</div>
+                                </div>
+                            </div>
+
+                            <form id="detailedBookingForm" class="row g-4">
+                                <!-- 👤 1. User Details -->
+                                <div class="col-12"><h4 class="h5 fw-bold border-bottom pb-3 mb-2">👤 1. Your Details</h4></div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-main">Full Name</label>
+                                    <input type="text" id="bookingUserName" class="form-control form-control-lg" required placeholder="Enter your name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-main">Phone Number</label>
+                                    <input type="text" id="bookingUserPhone" class="form-control form-control-lg" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" autocomplete="tel" placeholder="10-digit mobile number">
+                                </div>
+
+                                <!-- 📅 2. Appointment Details -->
+                                <div class="col-12 mt-5"><h4 class="h5 fw-bold border-bottom pb-3 mb-2">📅 2. Appointment Slot</h4></div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-main">Preferred Date</label>
+                                    <input type="date" id="bookingDate" class="form-control form-control-lg" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-main">Preferred Time Slot</label>
+                                    <select id="bookingTimeSlot" class="form-select form-select-lg" required>
+                                        <option value="" selected disabled>Select a slot</option>
+                                        <option>09:00 AM - 11:00 AM</option>
+                                        <option>11:00 AM - 01:00 PM</option>
+                                        <option>02:00 PM - 04:00 PM</option>
+                                        <option>04:00 PM - 06:00 PM</option>
+                                        <option>06:00 PM - 08:00 PM</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold text-main">Full Service Address</label>
+                                    <textarea id="bookingAddress" class="form-control form-control-lg" rows="3" required placeholder="House No, Street name, Landmark, Pincode..."></textarea>
+                                </div>
+
+                                <!-- 📝 3. Issue Description -->
+                                <div class="col-12 mt-5"><h4 class="h5 fw-bold border-bottom pb-3 mb-2">📝 3. Tell us more</h4></div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold text-main">Describe the issue (Optional)</label>
+                                    <textarea id="bookingIssue" class="form-control form-control-lg" rows="2" placeholder="e.g. Master bedroom AC not cooling, Fan making noise..."></textarea>
+                                </div>
+
+                                <!-- 💳 4. Payment Method -->
+                                <div class="col-12 mt-5"><h4 class="h5 fw-bold border-bottom pb-3 mb-2">💳 4. Payment Method</h4></div>
+                                <div class="col-12">
+                                    <div class="d-flex flex-wrap gap-4">
+                                        <div class="form-check custom-radio-card">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="payCash" value="Cash" checked>
+                                            <label class="form-check-label" for="payCash">
+                                                <span class="d-block fw-bold">Cash on Service</span>
+                                                <span class="text-muted small">Pay after work is done</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check custom-radio-card">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="payOnline" value="Online">
+                                            <label class="form-check-label" for="payOnline">
+                                                <span class="d-block fw-bold">Online Payment</span>
+                                                <span class="text-muted small">UPI, Card or Netbanking</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 📦 5. Order Summary -->
+                                <div class="col-12 mt-5">
+                                    <div class="bg-light-custom p-4 rounded-4 border-start border-4 border-custom shadow-sm">
+                                        <h4 class="h6 fw-bold mb-3 text-main">📦 Booking Summary</h4>
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <span class="text-muted small d-block mb-1">Service</span>
+                                                <span id="summaryService" class="fw-bold small text-main">---</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span class="text-muted small d-block mb-1">Appointment</span>
+                                                <span id="summaryDateTime" class="fw-bold small text-main">---</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span class="text-muted small d-block mb-1">City</span>
+                                                <span id="summaryCity" class="fw-bold small text-main">---</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 🔘 6. Action -->
+                                <div class="col-12 mt-5 pt-3">
+                                    <button type="submit" id="confirmBookingBtn" class="btn btn-custom btn-lg w-100 rounded-pill py-3 shadow-lg">Confirm Booking</button>
+                                    <button type="button" class="btn btn-link text-muted w-100 mt-3 text-decoration-none" onclick="showView('mainAppView')">Cancel and return to services</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- 🎉 7. Success State -->
+                        <div id="bookingSuccessContent" class="p-5 text-center hidden">
+                            <div class="success-anim mb-4 py-4">
+                                <div class="success-circle mx-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                            </div>
+                            <h3 class="display-6 fw-bold mb-3 text-main">Booking Confirmed!</h3>
+                            <p id="successMessage" class="lead text-muted mb-5">Your booking for Ravi Electrical Services has been scheduled successfully. ✅</p>
+                            <div class="d-flex flex-column gap-3 max-width-300 mx-auto">
+                                <button type="button" class="btn btn-custom btn-lg rounded-pill px-5" onclick="showView('mainAppView')">Back to Marketplace</button>
+                                <button type="button" class="btn btn-outline-custom rounded-pill px-5" onclick="showView('homepageView')">Go to Homepage</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Success Toast -->
+
+    <!-- Booking Success Toast -->
+    <div id="bookingToast" class="booking-toast hidden">
+        <div class="toast-content d-flex align-items-center gap-3 shadow-lg">
+            <div class="toast-icon">✅</div>
+            <div class="toast-text">
+                <div class="fw-bold">Booking Successful!</div>
+                <div class="small opacity-75">Provider will call you soon.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
